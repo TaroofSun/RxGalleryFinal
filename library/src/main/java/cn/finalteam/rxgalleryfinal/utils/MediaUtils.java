@@ -69,7 +69,7 @@ public class MediaUtils {
                 cursor.moveToFirst();
                 do {
                     MediaBean mediaBean = parseImageCursorAndCreateThumImage(context, cursor);
-                    if (mediaBean != null) {
+                    if (mediaBean != null && mediaBean.getOriginalPath() != null && mediaBean.getOriginalPath() != "" && new File(mediaBean.getOriginalPath()).exists() && new File(mediaBean.getOriginalPath()).isFile()) {
                         mediaBeanList.add(mediaBean);
                     }
                 } while (cursor.moveToNext());
